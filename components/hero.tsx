@@ -1,7 +1,6 @@
 "use client";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap, Check } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 
 const Hero = () => {
   const scrollToSection = (id: string) => {
@@ -12,17 +11,12 @@ const Hero = () => {
   };
 
   return (
-    <header
+    <header id="#home"
       className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden bg-white"
       aria-labelledby="hero-heading"
-    >
-      {/* Subtle background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-50 via-white to-white opacity-60" />
-      
-
+    > 
       <div className="mt-34 relative z-10 text-center max-w-5xl w-full">
-     
-
+    
         {/* Main heading */}
         <h1
           id="hero-heading"

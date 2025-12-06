@@ -2,7 +2,7 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Calendar, ExternalLink, Mail, Phone } from "lucide-react";
-import { useState } from "react";
+import Image from "next/image";
 
 const GithubLogo = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -45,7 +45,7 @@ const ExperienceItem = ({
   image,
 }: ExperienceItemProps) => {
   return (
-    <div className="relative pl-8 pb-16 last:pb-0 group">
+    <div id="team" className="relative pl-8 pb-16 last:pb-0 group">
       {/* Timeline line */}
       <div className="absolute left-0 top-3 h-full w-[1px] bg-gray-200 group-last:hidden" />
       <div className="absolute left-0 top-3 h-2.5 w-2.5 -ml-[4.5px] rounded-full border border-gray-300 bg-white shadow-sm group-hover:border-gray-900 group-hover:scale-125 transition-all" />
@@ -55,10 +55,11 @@ const ExperienceItem = ({
         <div className="flex items-start gap-4">
           <div className="flex-shrink-0 w-14 h-14 rounded-lg bg-gray-100 overflow-hidden relative shadow-sm">
             {image ? (
-              <img
+              <Image
                 src={image}
                 alt={name}
                 className="w-full h-full object-cover"
+                fill
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center font-semibold text-sm text-gray-600 bg-gray-50">
@@ -298,11 +299,7 @@ const Experience = () => {
     <section id="team" className="relative py-24 px-6 bg-white">
       <div className="max-w-4xl mx-auto relative">
         <div className="text-center mb-16">
-          <div className="flex justify-center mb-4">
-            <Badge className="rounded-full border border-gray-200 bg-white text-gray-700 px-3 py-1 text-[11px] font-medium tracking-wide shadow-sm uppercase">
-              Our Team
-            </Badge>
-          </div>
+         
           <h2 className="text-[52px] sm:text-[68px] font-serif tracking-tight text-gray-900 leading-tight">
             <span className="italic font-light text-gray-600">People</span> Who Build
           </h2>

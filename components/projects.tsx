@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
+import Image from "next/image";
 
 const GithubLogo = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -29,10 +30,11 @@ const ProjectCard = ({
     <div className="group relative flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white transition-all hover:shadow-lg hover:border-gray-300">
       {/* Project Image */}
       <div className="relative h-56 overflow-hidden bg-gray-100">
-        <img
+        <Image
           src={image}
           alt={title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          fill
         />
       </div>
 
@@ -163,11 +165,6 @@ const Projects = () => {
     <section id="projects" className="relative py-24 px-6 bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <div className="flex justify-center mb-4">
-            <Badge className="rounded-full border border-gray-200 bg-white text-gray-700 px-3 py-1 text-[11px] font-medium tracking-wide shadow-sm uppercase">
-              Portfolio
-            </Badge>
-          </div>
           <h2 className="text-[52px] sm:text-[68px] font-serif tracking-tight text-gray-900 leading-tight">
             <span className="italic font-light text-gray-600">Featured</span> Work
           </h2>

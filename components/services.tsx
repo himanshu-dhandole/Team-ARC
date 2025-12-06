@@ -51,11 +51,7 @@ const Services = () => {
     <section id="services" className="relative py-24 px-6 bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <div className="flex justify-center mb-4">
-            <Badge className="rounded-full border border-gray-200 bg-white text-gray-700 px-3 py-1 text-[11px] font-medium tracking-wide shadow-sm uppercase">
-              Services
-            </Badge>
-          </div>
+        
           <h2 className="text-[52px] sm:text-[68px] font-serif tracking-tight text-gray-900 leading-tight">
             <span className="italic font-light text-gray-600">What</span> We Deliver
           </h2>

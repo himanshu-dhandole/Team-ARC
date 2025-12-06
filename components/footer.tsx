@@ -1,11 +1,11 @@
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
-import { GithubLogo, XLogo, DribbleLogo, BlueSkyLogo } from "./icons";
+import { GithubLogo, XLogo } from "./icons";
 import { LucideLinkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const footerLinks = [
-  { title: "About", href: "#about" },
+  { title: "Home", href: "#home" },
   { title: "Team", href: "#team" },
   { title: "Projects", href: "#projects" },
 ];
@@ -60,25 +60,23 @@ const Footer = () => {
               href="mailto:info.arc@gmail.com"
               className="text-sm text-muted-foreground hover:text-foreground"
             >
-              info.arc@gmail.com
+              info.team.arc@gmail.com
             </a>
           </div>
 
           {/* Right: social + CTA */}
           <div className="flex items-center gap-5">
             <div className="flex items-center gap-4 text-muted-foreground">
-              <Link href="https://github.com/your-org" target="_blank" aria-label="GitHub">
+              <Link href="https://github.com/himanshu-dhandole" target="_blank" aria-label="GitHub">
                 <GithubLogo className="h-5 w-5" />
               </Link>
-              <Link href="https://x.com/your-handle" target="_blank" aria-label="X / Twitter">
+              <Link href="https://x.com/team-arc" target="_blank" aria-label="X / Twitter">
                 <XLogo className="h-5 w-5" />
               </Link>
-              <Link href="https://www.linkedin.com/company/your-company" target="_blank" aria-label="LinkedIn">
+              <Link href="https://www.linkedin.com/company/team-arc" target="_blank" aria-label="LinkedIn">
                 <LucideLinkedin className="h-5 w-5" />
               </Link>
-              <Link href="https://dribbble.com/your-handle" target="_blank" aria-label="Dribbble">
-                <DribbleLogo className="h-5 w-5" />
-              </Link>
+             
             </div>
 
             <Link href="#contact" className="ml-2">

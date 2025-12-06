@@ -1,4 +1,3 @@
-import About from "@/components/about";
 import Contact from "@/components/contact";
 import Experience from "@/components/experience";
 import Hero from "@/components/hero";
@@ -9,13 +8,12 @@ import Testimonials from "@/components/testimonials";
 export default function Home() {
   return (
     <div className="space-y-10 sm:space-y-16">
-      <Hero />
-      {/* <About /> */}
-      <Experience />
-      <Projects />
-      <Services />
-      <Testimonials />
-      <Contact />
+        <Hero />
+        <Experience />
+        <Projects />
+        <Services />
+        <Testimonials />
+        <Contact />
     </div>
   );
 }

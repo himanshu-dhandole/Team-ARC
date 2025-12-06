@@ -1,5 +1,4 @@
 "use client";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { useState } from "react";
@@ -10,7 +9,7 @@ const Contact = () => {
     email: "",
     company: "",
     budget: "",
-    message: ""
+    message: "",
   });
 
   const handleSubmit = () => {
@@ -21,7 +20,7 @@ const Contact = () => {
   const handleChange = (field: string, value: string) => {
     setFormData({
       ...formData,
-      [field]: value
+      [field]: value,
     });
   };
 
@@ -29,16 +28,13 @@ const Contact = () => {
     <section id="contact" className="relative py-24 px-6 bg-white">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <div className="flex justify-center mb-4">
-            <Badge className="rounded-full border border-gray-200 bg-white text-gray-700 px-3 py-1 text-[11px] font-medium tracking-wide shadow-sm uppercase">
-              Contact
-            </Badge>
-          </div>
           <h2 className="text-[52px] sm:text-[68px] font-serif tracking-tight text-gray-900 leading-tight">
-            <span className="italic font-light text-gray-600">Let's</span> work together
+            <span className="italic font-light text-gray-600">Let&apos;s</span> work
+            together
           </h2>
           <p className="text-[16px] text-gray-700 mt-4 max-w-2xl mx-auto font-light">
-            Ready to build something great? Get in touch and let's discuss your project.
+            Ready to build something great? Get in touch and let&apos;s discuss your
+            project.
           </p>
         </div>
 
@@ -46,10 +42,13 @@ const Contact = () => {
           {/* Left: Contact Info */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-[28px] font-serif text-gray-900 mb-6">Get in touch</h3>
+              <h3 className="text-[28px] font-serif text-gray-900 mb-6">
+                Get in touch
+              </h3>
               <p className="text-[15px] text-gray-700 leading-relaxed font-light mb-8">
-                We're here to help bring your vision to life. Whether you need a full-stack product, 
-                blockchain protocol, or AI integration—let's talk.
+                We&apos;re here to help bring your vision to life. Whether you need a
+                full-stack product, blockchain protocol, or AI integration—let&apos;s
+                talk.
               </p>
             </div>
 
@@ -59,9 +58,14 @@ const Contact = () => {
                   <Mail className="w-5 h-5 text-gray-700" />
                 </div>
                 <div>
-                  <p className="text-[13px] text-gray-600 font-medium uppercase tracking-wide mb-1">Email</p>
-                  <a href="mailto:info.arc@gmail.com" className="text-[16px] text-gray-900 hover:text-gray-600 transition-colors font-light">
-                    info.arc@gmail.com
+                  <p className="text-[13px] text-gray-600 font-medium uppercase tracking-wide mb-1">
+                    Email
+                  </p>
+                  <a
+                    href="mailto:info.arc@gmail.com"
+                    className="text-[16px] text-gray-900 hover:text-gray-600 transition-colors font-light"
+                  >
+                    info.team.arc@gmail.com
                   </a>
                 </div>
               </div>
@@ -71,8 +75,13 @@ const Contact = () => {
                   <Phone className="w-5 h-5 text-gray-700" />
                 </div>
                 <div>
-                  <p className="text-[13px] text-gray-600 font-medium uppercase tracking-wide mb-1">Phone</p>
-                  <a href="tel:+919284961467" className="text-[16px] text-gray-900 hover:text-gray-600 transition-colors font-light">
+                  <p className="text-[13px] text-gray-600 font-medium uppercase tracking-wide mb-1">
+                    Phone
+                  </p>
+                  <a
+                    href="tel:+919284961467"
+                    className="text-[16px] text-gray-900 hover:text-gray-600 transition-colors font-light"
+                  >
                     +91 9284961467
                   </a>
                 </div>
@@ -83,7 +92,9 @@ const Contact = () => {
                   <MapPin className="w-5 h-5 text-gray-700" />
                 </div>
                 <div>
-                  <p className="text-[13px] text-gray-600 font-medium uppercase tracking-wide mb-1">Location</p>
+                  <p className="text-[13px] text-gray-600 font-medium uppercase tracking-wide mb-1">
+                    Location
+                  </p>
                   <p className="text-[16px] text-gray-900 font-light">
                     Nagpur, Maharashtra, India
                   </p>
@@ -93,10 +104,8 @@ const Contact = () => {
 
             <div className="pt-8 border-t border-gray-200">
               <p className="text-[14px] text-gray-600 font-light mb-4">
-                Typical response time: <span className="font-semibold text-gray-900">24 hours</span>
-              </p>
-              <p className="text-[13px] text-gray-500 font-light">
-                We're available Monday through Friday, 9 AM - 6 PM IST
+                Typical response time:{" "}
+                <span className="font-semibold text-gray-900">60 minutes</span>
               </p>
             </div>
           </div>
@@ -173,7 +182,7 @@ const Contact = () => {
                 />
               </div>
 
-              <Button 
+              <Button
                 onClick={handleSubmit}
                 className="w-full rounded-full text-[14px] bg-gray-900 text-white hover:bg-gray-800 font-medium px-6 h-12 shadow-lg transition-all"
               >
