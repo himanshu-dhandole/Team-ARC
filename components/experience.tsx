@@ -1,7 +1,14 @@
+"use client";
+
 import { Badge } from "@/components/ui/badge";
 import { Calendar, ExternalLink, Mail, Phone } from "lucide-react";
-import Image from "next/image";
-import { GithubLogo } from "./icons";
+import { useState } from "react";
+
+const GithubLogo = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+  </svg>
+);
 
 interface ExperienceItemProps {
   name: string;
@@ -38,25 +45,23 @@ const ExperienceItem = ({
   image,
 }: ExperienceItemProps) => {
   return (
-    <div className="relative pl-8 not-last:pb-12 group">
-      {/* Timeline line with gradient */}
-      <div className="absolute left-0 top-2.5 h-full w-[2px] bg-gradient-to-b from-muted via-muted to-transparent group-first:h-[calc(100%-24px)] group-first:top-6">
-        <div className="absolute h-3 w-3 -left-[5px] top-0 rounded-full border-2 border-primary bg-background shadow-lg shadow-primary/30 group-hover:scale-125 transition-transform duration-300" />
-      </div>
+    <div className="relative pl-8 pb-16 last:pb-0 group">
+      {/* Timeline line */}
+      <div className="absolute left-0 top-3 h-full w-[1px] bg-gray-200 group-last:hidden" />
+      <div className="absolute left-0 top-3 h-2.5 w-2.5 -ml-[4.5px] rounded-full border border-gray-300 bg-white shadow-sm group-hover:border-gray-900 group-hover:scale-125 transition-all" />
 
       {/* Content */}
-      <div className="space-y-3 animate-in fade-in slide-in-from-right-8 duration-700">
-        <div className="flex items-center gap-3">
-          <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-accent overflow-hidden relative group-hover:scale-110 transition-transform duration-300 shadow-md">
+      <div className="space-y-4">
+        <div className="flex items-start gap-4">
+          <div className="flex-shrink-0 w-14 h-14 rounded-lg bg-gray-100 overflow-hidden relative shadow-sm">
             {image ? (
-              <Image
+              <img
                 src={image}
                 alt={name}
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-500"
+                className="w-full h-full object-cover"
               />
             ) : (
-              <div className="w-full h-full flex items-center justify-center font-semibold text-sm text-muted-foreground bg-gradient-to-br from-primary/20 to-primary/5">
+              <div className="w-full h-full flex items-center justify-center font-semibold text-sm text-gray-600 bg-gray-50">
                 {name
                   .split(" ")
                   .map((n) => n[0])
@@ -65,37 +70,39 @@ const ExperienceItem = ({
               </div>
             )}
           </div>
-          <div>
-            <div className="text-lg font-semibold group-hover:text-primary transition-colors duration-300">
+          <div className="flex-1">
+            <div className="text-xl font-semibold text-gray-900">
               {name}
             </div>
-            <div className="text-sm text-muted-foreground">{role}</div>
+            <div className="text-[15px] text-gray-600 font-light mt-0.5">{role}</div>
           </div>
         </div>
 
         <div>
-          <div className="flex items-center gap-4 flex-wrap text-sm text-muted-foreground">
+          <div className="flex items-center gap-4 flex-wrap text-[13px] text-gray-600">
             {period && (
-              <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4" />
+              <div className="flex items-center gap-1.5">
+                <Calendar className="w-3.5 h-3.5" />
                 <span>{period}</span>
               </div>
             )}
             {location && <div>{location}</div>}
+          </div>
+          <div className="flex items-center gap-4 flex-wrap text-[13px] text-gray-600 mt-2">
             {contact?.email && (
               <a
                 href={`mailto:${contact.email}`}
-                className="flex items-center gap-2 hover:text-primary transition-colors duration-300"
+                className="flex items-center gap-1.5 hover:text-gray-900 transition-colors"
               >
-                <Mail className="w-4 h-4" /> <span>{contact.email}</span>
+                <Mail className="w-3.5 h-3.5" /> <span>{contact.email}</span>
               </a>
             )}
             {contact?.phone && (
               <a
                 href={`tel:${contact.phone}`}
-                className="flex items-center gap-2 hover:text-primary transition-colors duration-300"
+                className="flex items-center gap-1.5 hover:text-gray-900 transition-colors"
               >
-                <Phone className="w-4 h-4" /> <span>{contact.phone}</span>
+                <Phone className="w-3.5 h-3.5" /> <span>{contact.phone}</span>
               </a>
             )}
             {contact?.linkedin && (
@@ -103,9 +110,9 @@ const ExperienceItem = ({
                 href={contact.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 hover:text-primary transition-colors duration-300"
+                className="flex items-center gap-1.5 hover:text-gray-900 transition-colors"
               >
-                <ExternalLink className="w-4 h-4" /> <span>LinkedIn</span>
+                <ExternalLink className="w-3.5 h-3.5" /> <span>LinkedIn</span>
               </a>
             )}
             {contact?.github && (
@@ -113,23 +120,21 @@ const ExperienceItem = ({
                 href={contact.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 hover:text-primary transition-colors duration-300"
+                className="flex items-center gap-1.5 hover:text-gray-900 transition-colors"
               >
-                <GithubLogo className="w-4 h-4" /> <span>GitHub</span>
+                <GithubLogo className="w-3.5 h-3.5" /> <span>GitHub</span>
               </a>
             )}
           </div>
         </div>
 
-        <p className="text-muted-foreground leading-relaxed">{summary}</p>
+        <p className="text-[15px] text-gray-700 leading-relaxed font-light">{summary}</p>
 
         <div className="flex flex-wrap gap-2">
-          {technologies.map((tech, i) => (
+          {technologies.map((tech) => (
             <Badge
               key={tech}
-              variant="secondary"
-              className="rounded-full hover:scale-105 transition-transform duration-200 animate-in fade-in zoom-in-95"
-              style={{ animationDelay: `${i * 50}ms` }}
+              className="rounded-full border border-gray-200 bg-white text-gray-700 px-3 py-0.5 text-[11px] font-medium tracking-wide shadow-sm hover:shadow-md transition-all"
             >
               {tech}
             </Badge>
@@ -137,33 +142,33 @@ const ExperienceItem = ({
         </div>
 
         {projects.length > 0 && (
-          <div className="mt-2 space-y-2">
+          <div className="mt-4 space-y-3">
             {projects.map((p, i) => (
               <div
                 key={i}
-                className="p-3 border rounded-lg bg-muted/30 hover:bg-muted/50 transition-all duration-300 hover:shadow-md group/project"
+                className="p-4 border border-gray-200 rounded-lg bg-gray-50/50 hover:bg-gray-50 transition-all hover:shadow-sm"
               >
                 <div className="flex items-start justify-between gap-3">
                   <div>
-                    <div className="font-semibold group-hover/project:text-primary transition-colors duration-300">
+                    <div className="font-semibold text-gray-900 text-[15px]">
                       {p.title}
                       {p.subtitle ? ` — ${p.subtitle}` : ""}
                     </div>
                     {p.desc && (
-                      <div className="text-sm text-muted-foreground mt-1">
+                      <div className="text-[14px] text-gray-600 mt-1 font-light">
                         {p.desc}
                       </div>
                     )}
                   </div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-3">
                     {p.live && (
                       <a
                         href={p.live}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm hover:text-primary flex items-center gap-2 transition-all duration-300 hover:scale-105"
+                        className="text-[13px] text-gray-600 hover:text-gray-900 flex items-center gap-1.5 transition-colors"
                       >
-                        <ExternalLink className="w-4 h-4" />
+                        <ExternalLink className="w-3.5 h-3.5" />
                         <span>Live</span>
                       </a>
                     )}
@@ -172,9 +177,9 @@ const ExperienceItem = ({
                         href={p.repo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm hover:text-primary flex items-center gap-2 transition-all duration-300 hover:scale-105"
+                        className="text-[13px] text-gray-600 hover:text-gray-900 flex items-center gap-1.5 transition-colors"
                       >
-                        <GithubLogo className="w-4 h-4" />
+                        <GithubLogo className="w-3.5 h-3.5" />
                         <span>Code</span>
                       </a>
                     )}
@@ -290,31 +295,25 @@ const Experience = () => {
   ];
 
   return (
-    <section id="team" className="relative py-20 px-6">
-      {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/10 to-transparent pointer-events-none" />
-
-      <div className="max-w-screen-md mx-auto relative">
-        <div className="text-center mb-12">
-          <div className="animate-in fade-in slide-in-from-top-6 duration-700">
-            <Badge variant="secondary" className="mb-4">
-              Team
+    <section id="team" className="relative py-24 px-6 bg-white">
+      <div className="max-w-4xl mx-auto relative">
+        <div className="text-center mb-16">
+          <div className="flex justify-center mb-4">
+            <Badge className="rounded-full border border-gray-200 bg-white text-gray-700 px-3 py-1 text-[11px] font-medium tracking-wide shadow-sm uppercase">
+              Our Team
             </Badge>
           </div>
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight animate-in fade-in slide-in-from-bottom-6 duration-700 delay-100">
-            People Who Build
+          <h2 className="text-[52px] sm:text-[68px] font-serif tracking-tight text-gray-900 leading-tight">
+            <span className="italic font-light text-gray-600">People</span> Who Build
           </h2>
-          <p className="text-muted-foreground mt-2 sm:mt-4 text-lg animate-in fade-in slide-in-from-bottom-6 duration-700 delay-200">
+          <p className="text-[16px] text-gray-700 mt-4 max-w-2xl mx-auto font-light">
             Core team — focused roles, production projects, real outcomes.
           </p>
         </div>
 
         <div className="relative">
           {team.map((member, index) => (
-            <ExperienceItem
-              key={index}
-              {...member}
-            />
+            <ExperienceItem key={index} {...member} />
           ))}
         </div>
       </div>

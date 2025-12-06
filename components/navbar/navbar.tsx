@@ -6,8 +6,8 @@ import { NavigationSheet } from "./navigation-sheet";
 
 const Navbar = () => {
   return (
-    <nav className="fixed z-10 top-6 inset-x-4 h-14 bg-background border dark:border-slate-700/70 max-w-screen-md mx-auto rounded-full">
-      <div className="h-full flex items-center justify-between mx-auto px-3">
+    <nav className="fixed z-50 top-6 inset-x-4 h-14 bg-white/90 backdrop-blur-sm border border-gray-200 max-w-screen-lg mx-auto rounded-full shadow-sm">
+      <div className="h-full flex items-center justify-between mx-auto px-4">
         <Logo />
 
         {/* Desktop Menu */}
@@ -16,17 +16,17 @@ const Navbar = () => {
         <div className="flex items-center gap-2">
           <Button
             variant="outline"
-            className="hidden sm:inline-flex rounded-full shadow-none"
+            className="hidden sm:inline-flex rounded-full border-gray-200 bg-white hover:bg-gray-50 text-gray-700 shadow-none h-9 w-9"
             size="icon"
           >
-            <XLogo />
+            <XLogo className="h-4 w-4" />
           </Button>
           <Button
             variant="outline"
-            className="rounded-full shadow-none"
+            className="rounded-full border-gray-200 bg-white hover:bg-gray-50 text-gray-700 shadow-none h-9 w-9"
             size="icon"
           >
-            <GithubLogo className="h-5! w-5!" />
+            <GithubLogo className="h-4 w-4" />
           </Button>
 
           {/* Mobile Menu */}

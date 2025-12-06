@@ -1,8 +1,12 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
-import Image from "next/image";
-import { GithubLogo } from "./icons";
+
+const GithubLogo = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+  </svg>
+);
 
 interface ProjectCardProps {
   title: string;
@@ -22,26 +26,28 @@ const ProjectCard = ({
   githubUrl,
 }: ProjectCardProps) => {
   return (
-    <div className="group relative flex flex-col overflow-hidden rounded-xl border border-accent transition-all hover:border-primary/50">
+    <div className="group relative flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white transition-all hover:shadow-lg hover:border-gray-300">
       {/* Project Image */}
-      <div className="relative h-64 overflow-hidden bg-accent">
-        <Image
+      <div className="relative h-56 overflow-hidden bg-gray-100">
+        <img
           src={image}
           alt={title}
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
-          fill
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </div>
 
       {/* Content */}
       <div className="flex-1 flex flex-col p-6">
-        <h3 className="text-xl font-semibold mb-2">{title}</h3>
-        <p className="text-muted-foreground mb-4">{description}</p>
+        <h3 className="text-[19px] font-semibold text-gray-900 mb-2">{title}</h3>
+        <p className="text-[14px] text-gray-700 mb-4 leading-relaxed font-light">{description}</p>
 
         {/* Technologies */}
         <div className="flex flex-wrap gap-2 mb-6">
           {technologies.map((tech) => (
-            <Badge key={tech} variant="secondary" className="rounded-full">
+            <Badge 
+              key={tech} 
+              className="rounded-full border border-gray-200 bg-white text-gray-700 px-2.5 py-0.5 text-[10px] font-medium tracking-wide shadow-sm"
+            >
               {tech}
             </Badge>
           ))}
@@ -50,21 +56,23 @@ const ProjectCard = ({
         {/* Actions */}
         <div className="flex gap-3 mt-auto">
           {liveUrl && (
-            <Button variant="default" className="rounded-full" asChild>
+            <Button 
+              className="rounded-full text-[13px] bg-gray-900 text-white hover:bg-gray-800 font-medium px-4 h-9 shadow-md transition-all" 
+              asChild
+            >
               <a href={liveUrl} target="_blank" rel="noopener noreferrer">
-                <ExternalLink className="mr-1 h-4 w-4" />
+                <ExternalLink className="mr-1.5 h-3.5 w-3.5" />
                 Live Demo
               </a>
             </Button>
           )}
           {githubUrl && (
             <Button
-              variant="outline"
-              className="rounded-full shadow-none"
+              className="rounded-full text-[13px] bg-white text-gray-700 border border-gray-200 hover:bg-gray-50 font-medium px-4 h-9 shadow-sm transition-all"
               asChild
             >
               <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-                <GithubLogo className="mr-1 h-4 w-4" />
+                <GithubLogo className="mr-1.5 h-3.5 w-3.5" />
                 View Code
               </a>
             </Button>
@@ -149,26 +157,27 @@ const Projects = () => {
       liveUrl: undefined,
       githubUrl: undefined,
     },
-    // keep any additional project entries here
   ];
 
   return (
-    <section id="projects" className="relative py-20 px-6">
-      <div className="max-w-screen-md mx-auto">
-        <div className="text-center mb-12">
-          <Badge variant="secondary" className="mb-4">
-            Projects
-          </Badge>
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight">
-            Featured Work
+    <section id="projects" className="relative py-24 px-6 bg-white">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+          <div className="flex justify-center mb-4">
+            <Badge className="rounded-full border border-gray-200 bg-white text-gray-700 px-3 py-1 text-[11px] font-medium tracking-wide shadow-sm uppercase">
+              Portfolio
+            </Badge>
+          </div>
+          <h2 className="text-[52px] sm:text-[68px] font-serif tracking-tight text-gray-900 leading-tight">
+            <span className="italic font-light text-gray-600">Featured</span> Work
           </h2>
-          <p className="text-muted-foreground mt-2 sm:mt-4 text-lg">
+          <p className="text-[16px] text-gray-700 mt-4 max-w-3xl mx-auto font-light">
             Production-minded builds across Web2 and Web3 — protocol engineering,
             resilient backends, and AI-driven systems.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <ProjectCard key={index} {...project} />
           ))}

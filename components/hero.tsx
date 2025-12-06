@@ -1,88 +1,126 @@
-import AnimatedGridPattern from "@/components/ui/animated-grid-pattern";
+"use client";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import { ArrowRight, Zap } from "lucide-react";
+import { ArrowRight, Zap, Check } from "lucide-react";
 
 const Hero = () => {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <header
       className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden bg-white"
       aria-labelledby="hero-heading"
     >
-      {/* Subtle animated grid for texture */}
-      <AnimatedGridPattern
-        numSquares={30}
-        maxOpacity={0.05}
-        duration={3}
-        className={cn(
-          "[mask-image:radial-gradient(500px_circle_at_center,white,transparent)]",
-          "inset-x-0 h-full"
-        )}
-      />
+      {/* Subtle background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-50 via-white to-white opacity-60" />
+      
 
-      <div className="relative z-10 text-center max-w-4xl w-full">
-        {/* Top badge */}
-        <div className="flex justify-center mb-6">
-          <Badge className="rounded-full border bg-white/70 backdrop-blur-sm text-gray-900 px-3 py-1 text-[11px] font-medium tracking-wide shadow-sm">
-            <Zap className="h-3.5 w-3.5 text-yellow-500 mr-1" />
-            BETTER CALL <span className="font-bold">TEAM ARC</span>
-          </Badge>
-        </div>
+      <div className="mt-34 relative z-10 text-center max-w-5xl w-full">
+     
 
         {/* Main heading */}
         <h1
           id="hero-heading"
-          className="text-[55px] sm:text-[65px] md:text-[72px] font-serif tracking-tight leading-[1.05] text-gray-900"
+          className="text-[56px] sm:text-[72px] md:text-[84px] lg:text-[96px] font-serif tracking-tight leading-[0.95] text-gray-900 mb-6"
         >
-          <span className="italic font-light text-gray-700">Build</span> your Dream Startup.
+          <span className="italic font-light text-gray-600">Build</span> your dream
+          <br />
+          <span className="font-normal">Startup</span>
+          <span className="text-gray-600">.</span>
         </h1>
 
-        {/* One-line value prop */}
-        <p className="mt-4 text-[18px] sm:text-[19px] font-semibold text-gray-800">
-          TEAM ARC — elite freelance engineers, designers and product leaders.
+        {/* Value proposition */}
+        <p className="mt-7 text-[19px] sm:text-[22px] font-semibold text-gray-900 tracking-tight">
+          Elite freelance engineers, designers & product leaders
         </p>
 
         {/* Supporting description */}
-        <p className="mt-3 text-[15px] sm:text-[16px] text-gray-800 max-w-[680px] mx-auto leading-relaxed font-light">
-          We partner with startups and product teams to ship robust, production-ready systems — fast. Frontend, backend, infra,
-          and end-to-end product delivery from a single trusted team.
+        <p className="mt-5 text-[15px] sm:text-[17px] text-gray-700 max-w-[750px] mx-auto leading-relaxed font-light">
+          We partner with startups and product teams to ship robust, production-ready systems — fast. 
+          Frontend, backend, infrastructure, and end-to-end product delivery from a single trusted team.
         </p>
 
-        {/* Primary CTAs */}
-        <div className="mt-8 flex items-center justify-center gap-4">
+        {/* Key differentiators */}
+        <div className="mt-8 flex items-center justify-center gap-6 flex-wrap text-[14px] text-gray-700">
+          <div className="flex items-center gap-2">
+            <Check className="h-4 w-4 text-gray-900" />
+            <span className="font-light">No agencies</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Check className="h-4 w-4 text-gray-900" />
+            <span className="font-light">Direct access</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Check className="h-4 w-4 text-gray-900" />
+            <span className="font-light">Production-grade</span>
+          </div>
+        </div>
+
+        {/* Primary CTA */}
+        <div className="mt-12 flex items-center justify-center gap-4">
           <Button
             size="lg"
-            className="rounded-full text-[14px] bg-gray-600 text-white hover:bg-blue-700 font-medium px-6 h-11 shadow-md inline-flex items-center"
+            onClick={() => scrollToSection('contact')}
+            className="rounded-full text-[14px] bg-gray-900 text-white hover:bg-gray-800 font-medium px-8 h-12 shadow-lg hover:shadow-xl transition-all inline-flex items-center"
             aria-label="Get a proposal"
           >
             GET A PROPOSAL
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
-
+          <Button
+            size="lg"
+            onClick={() => scrollToSection('projects')}
+            className="rounded-full text-[14px] bg-white text-gray-900 border border-gray-200 hover:bg-gray-50 font-medium px-8 h-12 shadow-sm hover:shadow-md transition-all inline-flex items-center"
+            aria-label="View our work"
+          >
+            VIEW WORK
+          </Button>
         </div>
 
-        {/* Quick project input (prefill for proposal) */}
-      
+        {/* Social proof metrics */}
+        <div className="mt-24 pt-12 border-t border-gray-200">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 sm:gap-8 max-w-3xl mx-auto">
+            <div className="text-center">
+              <p className="text-[36px] font-serif text-gray-900 mb-1">50+</p>
+              <p className="text-[13px] font-medium text-gray-600 uppercase tracking-wide">Projects Shipped</p>
+              <p className="mt-1 text-[12px] text-gray-500 font-light">On time, on budget</p>
+            </div>
 
-        {/* Trusted / proof row */}
-        <div className="mt-16 flex items-center justify-center gap-12 flex-wrap opacity-90">
-          <div className="text-center">
-            <p className="text-[12px] font-semibold text-gray-800 uppercase tracking-wide">Trusted by</p>
-            <p className="mt-1 text-[13px] text-gray-600">startups & enterprise</p>
-          </div>
+            <div className="text-center">
+              <p className="text-[36px] font-serif text-gray-900 mb-1">100%</p>
+              <p className="text-[13px] font-medium text-gray-600 uppercase tracking-wide">Client Satisfaction</p>
+              <p className="mt-1 text-[12px] text-gray-500 font-light">Zero failed deliveries</p>
+            </div>
 
-          <div className="text-center">
-            <p className="text-[12px] font-semibold text-gray-800 uppercase tracking-wide">50+ Projects</p>
-            <p className="mt-1 text-[10px] text-gray-500 uppercase tracking-wider">shipped on time</p>
-          </div>
-
-          <div className="text-center">
-            <p className="text-[12px] font-semibold text-gray-800 uppercase tracking-wide">Zero Downtime</p>
-            <p className="mt-1 text-[10px] text-gray-500 uppercase tracking-wider">production ready</p>
+            <div className="text-center">
+              <p className="text-[36px] font-serif text-gray-900 mb-1">24h</p>
+              <p className="text-[13px] font-medium text-gray-600 uppercase tracking-wide">Response Time</p>
+              <p className="mt-1 text-[12px] text-gray-500 font-light">Direct communication</p>
+            </div>
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes fade-in {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fade-in {
+          animation: fade-in 0.8s ease-out;
+        }
+      `}</style>
     </header>
   );
 };
