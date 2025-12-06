@@ -78,22 +78,13 @@ const ProjectCard = ({
 const Projects = () => {
   const projects: ProjectCardProps[] = [
     {
-      title: "PerpEX — Decentralized Perpetuals",
+      title: "PerpEX",
       description:
         "Decentralized perpetual futures protocol with vAMM core, NFT-backed position tokens, on-chain liquidation & funding. Production-minded: fully tested with Foundry and backed by an incentive-driven keeper network for automatic liquidations.",
-      image: "https://image2url.com/images/1764698017524-4f684e2c-16b7-4e7b-9c75-54e57c69a476.png",
+      image: "https://image2url.com/images/1764700426792-f43e236d-a44a-4742-8768-25257a4f99a3.png",
       technologies: ["Solidity", "Foundry", "vAMM", "NFTs", "Keeper Network"],
       githubUrl: undefined,
       liveUrl: undefined,
-    },
-    {
-      title: "FoodFactory",
-      description:
-        "Secure, scalable food-delivery backend powered by Spring Boot. JWT auth, Razorpay payments, UploadCare image uploads, and real-time delivery tracking for customers, restaurants, and delivery partners.",
-      image: "https://image2url.com/images/1764698484386-077676b7-85ea-4f11-8c88-87ae7c14360f.png",
-      technologies: ["Spring Boot", "JWT", "Razorpay", "UploadCare", "Postgres"],
-      liveUrl: undefined,
-      githubUrl: undefined,
     },
     {
       title: "Flexi-Yield",
@@ -105,46 +96,55 @@ const Projects = () => {
       githubUrl: undefined,
     },
     {
-      title: "Vermint — Decentralized E-Commerce (Aug 2025)",
+      title: "FoodFactory",
+      description:
+        "Secure, scalable food-delivery backend powered by Spring Boot. JWT auth, Razorpay payments, UploadCare image uploads, and real-time delivery tracking for customers, restaurants, and delivery partners.",
+      image: "https://image2url.com/images/1764698484386-077676b7-85ea-4f11-8c88-87ae7c14360f.png",
+      technologies: ["Spring Boot", "JWT", "Razorpay", "UploadCare", "Postgres"],
+      liveUrl: undefined,
+      githubUrl: undefined,
+    },
+    {
+      title: "Vermint",
       description:
         "Blockchain e-commerce platform where brands mint NFT digital twins for physical products with trustless escrow and on-chain verification. ERC1155 tokens, IPFS provenance, automated redemption workflows.",
-      image: "/projects/vermint.png",
+      image: "https://themewagon.com/wp-content/uploads/2021/06/landing-1.png",
       technologies: ["Solidity", "ERC1155", "IPFS", "React", "OpenZeppelin"],
       liveUrl: undefined,
       githubUrl: undefined,
     },
     {
-      title: "Insight Yield (Nov 2024)",
+      title: "Insight Yield",
       description:
         "Autonomous liquidity engine combining off-chain AI predictions with on-chain proofs to optimize DeFi yields. Modular ERC-4626 vaults, Python XGBoost scoring, and EIP-712 signed recommendations for secure reallocation.",
-      image: "/projects/insight-yield.png",
+      image: "https://tse2.mm.bing.net/th/id/OIP.Hik1VgHplD5oRYqK5VWTeAAAAA?w=400&h=300&rs=1&pid=ImgDetMain&o=7&rm=3",
       technologies: ["Solidity", "Python", "XGBoost", "ERC-4626", "Polygon"],
       liveUrl: undefined,
       githubUrl: undefined,
     },
     {
-      title: "Skedula (Aug 2024)",
+      title: "Skedula",
       description:
         "Business & appointment management platform with payments. Microservices architecture (Spring Boot + RabbitMQ), Razorpay wallet, Redis caching, and Dockerized deployments.",
-      image: "/projects/skedula.png",
+      image: "https://global-uploads.webflow.com/5f717831e96c96004f99c4a3/6409cece08938bdfac45ec06_SCR-20230309-jie.png",
       technologies: ["Spring Boot", "RabbitMQ", "Razorpay", "Redis", "Postgres"],
       liveUrl: undefined,
       githubUrl: undefined,
     },
     {
-      title: "Proxima (Jan 2024)",
+      title: "Proxima",
       description:
         "AI-powered exam integrity system: real-time proctoring with WebRTC/WebSocket, Gemini AI for scenario generation, device detection, and cross-platform support (Web + Mobile).",
-      image: "/projects/proxima.png",
+      image: "https://static.vecteezy.com/system/resources/previews/018/815/472/original/landing-page-design-modern-landing-page-templates-landing-page-design-templates-free-free-vector.jpg",
       technologies: ["WebRTC", "Spring Boot", "React Native", "Gemini AI", "Postgres"],
       liveUrl: undefined,
       githubUrl: undefined,
     },
     {
-      title: "PlanIt (Feb 2024)",
+      title: "PlanIt",
       description:
         "Event management platform connecting hosts, organizers and vendors. Microservices, secure escrow (holds 10% until post-event review), Dockerized infra and dual booking support.",
-      image: "/projects/planit.png",
+      image: "https://mir-s3-cdn-cf.behance.net/project_modules/1400/f6ce21140178657.623ca2fa82516.jpg",
       technologies: ["Spring Boot", "React", "Postgres", "Docker", "RabbitMQ"],
       liveUrl: undefined,
       githubUrl: undefined,
