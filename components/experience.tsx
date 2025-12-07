@@ -253,7 +253,7 @@ const Experience = () => {
       location: "Nagpur, India",
       contact: {
         linkedin: "https://www.linkedin.com/in/yash-zade",
-        github: "https://github.com/yashzade",
+        github: "https://github.com/Yash-Zade",
       },
       period: "2022 — Present",
       summary:
@@ -275,7 +275,7 @@ const Experience = () => {
       role: "Platform & Blockchain Engineer",
       location: "Nagpur, India",
       contact: {
-        linkedin: "https://www.linkedin.com/in/arpit-satpute",
+        linkedin: "https://www.linkedin.com/in/arpitsatpute",
         github: "https://github.com/arpitSatpute",
       },
       period: "2022 — Present",
@@ -285,13 +285,15 @@ const Experience = () => {
         "Solidity",
         "Foundry",
         "Spring Boot",
+        "React",
+        "React Native",
         "Node.js",
         "Postgres",
         "Docker",
         "IPFS",
       ],
       image:
-        "https://image2url.com/images/1764699653439-e6940683-2614-4183-8e7c-dfeffe0adb4e.png",
+        "https://image2url.com/images/1765079614834-29727d16-99ba-4701-ace9-6ce714773e73.jpeg",
     },
   ];
 
